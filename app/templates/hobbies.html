@@ -42,29 +42,17 @@
       </div>
 
       <main>
-         <div class="prev-work-experience">
-            <h2>Previous Work Experience</h2>
-
-            <h2>Work Experience</h2>
-            <ul>
-               {% for job in work_experience %}
-               <li>
-                  <strong>{{ job.position }}</strong> at {{ job.company }}
-                  <em> - {{ job.description }}</em>
-               </li>
+         <div class="hobbies-section">
+            <h1>{{ title }}</h1>
+            <div class="hobby-grid">
+               {% for hobby in hobbies %}
+               <div class="hobby-card">
+                  <img src="{{ hobby.image }}" alt="{{ hobby.name }}" />
+                  <p>{{ hobby.name }}</p>
+               </div>
                {% endfor %}
-            </ul>
+            </div>
          </div>
-
-         <h2>Education</h2>
-         <ul>
-            {% for edu in education %}
-            <li>
-               <strong>{{ edu.degree }}</strong>, {{ edu.school }} ({{ edu.year
-               }})
-            </li>
-            {% endfor %}
-         </ul>
       </main>
    </body>
 </html>
