@@ -8,4 +8,38 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
+    work_experience = [
+        {
+            "company": "Nintendo",
+            "position": "Customer Support",
+            "description": "Assisted customers with technical issues."
+        },
+        {
+            "company": "Best Buy",
+            "position": "Inventory Specialist",
+            "description": "Compared stock to online inventory to ensure acccuracy."
+        },
+        {
+            "company": "Green River College",
+            "position": "Full Stack Developer Intern",
+            "description": "Worked with professors to update tools and resources they used to manage their classes."
+        }
+    ]
+    
+    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"), work_experience=work_experience)
+
+@app.route('/hobbies')
+def hobbies():
+    hobbies_list = [
+        {"name": "Gaming", "image": "/static/img/hobbies/World_of_Warcraft.png"},
+        {"name": "Cross-Stitching", "image": "/static/img/hobbies/Dragon-X-Stitch.jpg"},
+        {"name": "Legos", "image": "/static/img/hobbies/DD_Lego.jpg"},
+        {"name": "Reading", "image": "/static/img/hobbies/books.webp"},
+        {"name": "Web Development", "image": "/static/img/hobbies/web-dev.jpg"}
+    ]
+        
+    return render_template(
+        'hobbies.html',
+        title="Hobbies",
+        hobbies=hobbies_list
+    )
